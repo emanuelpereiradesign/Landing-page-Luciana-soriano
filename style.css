@@ -1240,6 +1240,10 @@ button {
   .faq-box {
     max-width: 100%;
   }
+  .faq-btn-wrap {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1424,11 +1428,11 @@ button {
     align-items: center;
   }
   .faq-btn-wrap {
-    grid-column: 1;
+    grid-column: 1 / -1;
+    justify-self: center;
     display: flex;
     justify-content: center;
-    margin-left: 0;
-    width: 100%;
+    margin: auto;
   }
   .faq-title {
     font-size: 21px;
@@ -1491,6 +1495,7 @@ button {
     font-size: 15px;
     height: 48px;
     padding: 0 28px;
+    margin: auto;
   }
 
   /* Footer */
@@ -1692,11 +1697,11 @@ button {
     padding: 18px;
   }
   .faq-btn-wrap {
-    grid-column: 1;
+    grid-column: 1 / -1;
+    justify-self: center;
     display: flex;
     justify-content: center;
-    margin-left: 0;
-    width: 100%;
+    margin: auto;
   }
   .faq-question {
     font-size: 13px;
