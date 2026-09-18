@@ -3,8 +3,6 @@
    Ajuste Fino de Escala: Fontes, Botões, Cards e Shapes Elegantes
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
-
 :root {
   --primary-green: #3d6b3d;
   --secondary-green: #6f8d6f;
@@ -212,7 +210,7 @@ button {
    ========================================================================== */
 .hero-section {
   position: relative;
-  background: url("Assets/hero_section.bmp") 60px center / cover no-repeat;
+  background: url("compressed/hero_section.webp") 60px center / cover no-repeat;
   padding: 0;
   overflow: hidden;
   min-height: 700px;
@@ -373,8 +371,8 @@ button {
 /* Conteúdo Dobra 2 */
 .section-evidencias {
   position: relative;
-  background: url("Assets/foto_do_background_da_dobra_2\ \(2\).bmp") center /
-    cover no-repeat;
+  background: url("compressed/foto_do_background_da_dobra_2\ \(2\).webp")
+    center / cover no-repeat;
   min-height: 890px;
   padding-top: 50px;
 }
@@ -628,8 +626,8 @@ button {
    ========================================================================== */
 .section-faq {
   position: relative;
-  background: var(--secondary-green) url("Assets/background_da_dobra_4.bmp")
-    no-repeat center right;
+  background: var(--secondary-green)
+    url("compressed/background_da_dobra_4.webp") no-repeat center right;
   background-size: cover;
   padding: 80px 0 90px;
   overflow: hidden;
@@ -1268,7 +1266,8 @@ button {
     height: auto;
     max-height: none;
     min-height: 800px;
-    background: url("Assets/HERO MOBILE.bmp") center top / 140% auto no-repeat;
+    background: url("compressed/HERO\ MOBILE.webp") center top / 140% auto
+      no-repeat;
     padding-bottom: 200px;
   }
   .hero-content {
@@ -1411,8 +1410,9 @@ button {
   /* FAQ */
   .section-faq {
     padding: 300px 0 70px;
-    background: var(--secondary-green) url("Assets/IMAGEM DOBRA 4 MOBILE.bmp")
-      center top / cover no-repeat !important;
+    background: var(--secondary-green)
+      url("compressed/IMAGEM\ DOBRA\ 4\ MOBILE.webp") center top / cover
+      no-repeat !important;
   }
   .faq-content {
     background: rgba(95, 95, 95, 0.55);
@@ -1576,7 +1576,8 @@ button {
     height: auto;
     max-height: none;
     min-height: 750px;
-    background: url("Assets/HERO MOBILE.bmp") center top / 140% auto no-repeat;
+    background: url("compressed/HERO\ MOBILE.webp") center top / 140% auto
+      no-repeat;
     padding-bottom: 180px;
   }
   .hero-content {
@@ -1635,7 +1636,8 @@ button {
   /* Evidências wrapper */
   .section-evidencias {
     min-height: clamp(500px, 130vw, 800px);
-    background: url("Assets/DOBRA 2 MOBILE.png") center top / cover no-repeat !important;
+    background: url("compressed/DOBRA 2 MOBILE.webp") center top / cover
+      no-repeat !important;
   }
   .section-evidencias-wrapper {
     margin-top: 0;

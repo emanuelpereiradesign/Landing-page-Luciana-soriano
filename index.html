@@ -18,8 +18,16 @@
       href="Assets/FIVECON-LUCIANA-SORIANO.svg"
     />
 
+    <!-- Preconnect para fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Font Poppins (non-blocking) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" /></noscript>
+
     <!-- Estilos -->
-    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="stylesheet" href="style.css?v=6" />
   </head>
   <body>
     <!-- ==========================================================================
@@ -66,7 +74,7 @@
               alt="Luciana Soriano - Psicóloga Clínica"
               width="760"
               height="485"
-              priority
+              fetchpriority="high"
             />
           </div>
         </div>
@@ -189,11 +197,17 @@
         src="Assets/LOGO COM BAIXA OPACIDADE.svg"
         alt=""
         class="watermark watermark-top-right"
+        width="200"
+        height="200"
+        loading="lazy"
       />
       <img
         src="Assets/LOGO COM BAIXA OPACIDADE.svg"
         alt=""
         class="watermark watermark-bottom-left"
+        width="200"
+        height="200"
+        loading="lazy"
       />
 
       <div class="container">
@@ -344,6 +358,8 @@
               <img
                 src="Assets/slide 1.webp"
                 alt="Apresentação Luciana Soriano - Capa"
+                width="540"
+                height="760"
                 draggable="false"
               />
             </div>
@@ -351,6 +367,9 @@
               <img
                 src="Assets/slide 2.webp"
                 alt="Apresentação Luciana Soriano - Sobre mim"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -358,6 +377,9 @@
               <img
                 src="Assets/slide 3.webp"
                 alt="Apresentação Luciana Soriano - Como funciona"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -365,6 +387,9 @@
               <img
                 src="Assets/slide 4.webp"
                 alt="Apresentação Luciana Soriano - Demandas"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -372,6 +397,9 @@
               <img
                 src="Assets/slide 5.webp"
                 alt="Apresentação Luciana Soriano - Abordagens"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -379,6 +407,9 @@
               <img
                 src="Assets/slide 6.webp"
                 alt="Apresentação Luciana Soriano - Detalhes"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -386,6 +417,9 @@
               <img
                 src="Assets/slide 7.webp"
                 alt="Apresentação Luciana Soriano - Contato"
+                width="540"
+                height="760"
+                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -682,6 +716,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
