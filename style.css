@@ -1424,7 +1424,11 @@ button {
     align-items: center;
   }
   .faq-btn-wrap {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
     margin-left: 0;
+    width: 100%;
   }
   .faq-title {
     font-size: 21px;
@@ -1688,7 +1692,11 @@ button {
     padding: 18px;
   }
   .faq-btn-wrap {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
     margin-left: 0;
+    width: 100%;
   }
   .faq-question {
     font-size: 13px;
