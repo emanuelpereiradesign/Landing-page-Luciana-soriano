@@ -1,0 +1,1787 @@
+/* ==========================================================================
+   ESTILOS REFINADOS E PROPORCIONAIS - PÁGINA LUCIANA SORIANO
+   Ajuste Fino de Escala: Fontes, Botões, Cards e Shapes Elegantes
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+
+:root {
+  --primary-green: #498149;
+  --secondary-green: #6f8d6f;
+  --dark-green: #1f271f;
+  --light-green-bg: rgba(73, 129, 73, 0.08);
+  --accent-neon: #87ff8b;
+  --gradient-ribbon: linear-gradient(90deg, #346534 0%, #68cb68 100%);
+  --white: #ffffff;
+  --font-main:
+    "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --btn-shadow: 0px 8px 16px rgba(69, 255, 75, 0.22);
+  --btn-shadow-hover: 0px 12px 20px rgba(69, 255, 75, 0.32);
+}
+
+/* Reset e Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--white);
+  color: var(--primary-green);
+  line-height: 1.5;
+  overflow-x: clip;
+  min-width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Container de Conteúdo (Proporção Exata Figma) */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Botões Padronizados e Proporcionais */
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary-green);
+  color: var(--white);
+  font-size: 16.5px;
+  font-weight: 500;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 12px;
+  box-shadow: var(--btn-shadow);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  transition: top 0.8s cubic-bezier(0.44, 0, 0, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-primary:hover::before {
+  top: 100%;
+}
+.btn-primary:hover {
+  background: #8aad8a;
+  color: var(--white);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+.btn-white {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+  color: var(--primary-green);
+  font-size: 16.5px;
+  font-weight: 600;
+  height: 54px;
+  padding: 0 36px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+.btn-white::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  transition: top 0.8s cubic-bezier(0.44, 0, 0, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-white:hover::before {
+  top: 100%;
+}
+.btn-white:hover {
+  background: #8aad8a;
+  color: var(--white);
+  box-shadow: 0px 12px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Text slide animation (Light Bulb Button) */
+.btn-text-wrap {
+  display: block;
+  position: relative;
+  height: 1.15em;
+  overflow: hidden;
+  z-index: 2;
+}
+.btn-text {
+  display: block;
+  height: 1.15em;
+  line-height: 1.15;
+  white-space: nowrap;
+  transition:
+    transform 0.4s cubic-bezier(0.44, 0, 0, 1),
+    opacity 0.4s cubic-bezier(0.44, 0, 0, 1);
+}
+.btn-text:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(110%);
+  opacity: 0;
+}
+.btn-primary:hover .btn-text:first-child,
+.btn-white:hover .btn-text:first-child {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+.btn-primary:hover .btn-text:last-child,
+.btn-white:hover .btn-text:last-child {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.15s;
+}
+
+/* ==========================================================================
+   DOBRA 1: HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: url("Assets/hero_section.bmp") 60px center / cover no-repeat;
+  padding: 0;
+  overflow: hidden;
+  min-height: 700px;
+  height: 100vh;
+  max-height: 820px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  min-height: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 3;
+  max-width: 460px;
+  padding: 0;
+  margin-top: -150px;
+}
+
+.hero-logo {
+  margin-bottom: 24px;
+}
+
+.hero-logo img {
+  width: 250px;
+  height: auto;
+}
+
+.hero-tagline {
+  color: var(--secondary-green);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+.hero-title {
+  color: var(--primary-green);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.28;
+  margin-bottom: 16px;
+}
+
+.hero-desc {
+  color: var(--primary-green);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+.hero-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+}
+
+.hero-cta-wrapper .btn-primary {
+  width: 100%;
+}
+
+.hero-note {
+  color: var(--primary-green);
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.hero-image-wrapper {
+  display: none;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ==========================================================================
+   DOBRA 2: TERAPIA BASEADA EM EVIDÊNCIAS
+   ========================================================================== */
+.section-evidencias-wrapper {
+  position: relative;
+  margin-top: 0;
+  padding-bottom: 60px;
+  z-index: 5;
+  margin-left: -1px;
+  width: calc(100% + 2px);
+  background-color: var(--secondary-green);
+}
+.section-evidencias-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -130px;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background: url("Assets/SHAPE DA DOBRA 2.svg") center top / cover no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+/* SVG Curva superior */
+.evidencias-arch {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 110px;
+  margin-top: -108px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.evidencias-arch img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Medalhão Central com Monograma LS */
+.crest-badge-container {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+.crest-badge {
+  width: 68px;
+  height: 68px;
+  background-color: var(--secondary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  border: 2.5px solid var(--white);
+}
+
+.crest-badge img {
+  width: 38px;
+  height: 38px;
+}
+
+/* Conteúdo Dobra 2 */
+.section-evidencias {
+  position: relative;
+  background: url("Assets/foto_do_background_da_dobra_2\ \(2\).bmp") center /
+    cover no-repeat;
+  min-height: 890px;
+  padding-top: 50px;
+}
+
+.evidencias-header-title {
+  text-align: center;
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: -30px;
+  margin-bottom: 80px;
+  line-height: 1.3;
+}
+
+.evidencias-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.evidencias-left {
+  min-height: 680px;
+}
+
+.evidencias-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 4;
+}
+
+.evidencias-bio {
+  color: var(--white);
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+.evidencias-bio strong {
+  font-weight: 700;
+}
+
+/* Cards Brancos Proporcionais */
+.evidencia-card {
+  background: var(--white);
+  border-radius: 11px;
+  padding: 18px 22px;
+  box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.22);
+  border: 1.5px solid var(--white);
+  transition: transform 0.2s ease;
+}
+
+.evidencia-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-green);
+  flex-shrink: 0;
+}
+
+.card-title {
+  color: var(--primary-green);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.card-desc {
+  color: var(--secondary-green);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.48;
+}
+
+.card-desc strong {
+  font-weight: 700;
+  color: var(--secondary-green);
+}
+
+/* ==========================================================================
+   FAIXA DE DESTAQUE / MARQUEE RIBBON
+   ========================================================================== */
+.marquee-ribbon {
+  background: var(--gradient-ribbon);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 6;
+  margin-top: -60px;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   DOBRA 3: COMO FUNCIONA A TERAPIA
+   ========================================================================== */
+.section-como-funciona {
+  position: relative;
+  background-color: var(--white);
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+.watermark {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.watermark-top-right {
+  top: 10px;
+  right: -30px;
+  width: 320px;
+  max-width: 22vw;
+}
+
+.watermark-bottom-left {
+  bottom: 10px;
+  left: -50px;
+  width: 320px;
+  max-width: 22vw;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  color: var(--primary-green);
+  font-size: 27px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+  color: var(--primary-green);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.passos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.passo-card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(73, 129, 73, 0) 0%,
+    rgba(73, 129, 73, 0.09) 100%
+  );
+  border-radius: 14px;
+  padding: 42px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(73, 129, 73, 0.06);
+  transition: transform 0.25s ease;
+}
+
+.passo-card:hover {
+  transform: translateY(-4px);
+}
+
+.passo-numero-badge {
+  position: absolute;
+  top: -34px;
+  width: 68px;
+  height: 68px;
+  background-color: var(--primary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 36px;
+  font-weight: 500;
+  box-shadow: 0 6px 12px rgba(73, 129, 73, 0.2);
+}
+
+.passo-title {
+  color: var(--primary-green);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.passo-desc {
+  color: var(--primary-green);
+  font-size: 13.8px;
+  font-weight: 400;
+  line-height: 1.48;
+}
+
+/* ==========================================================================
+   DOBRA 4: DÚVIDAS SOBRE A PSICOTERAPIA (FAQ)
+   ========================================================================== */
+.section-faq {
+  position: relative;
+  background: var(--secondary-green) url("Assets/background_da_dobra_4.bmp")
+    no-repeat center right;
+  background-size: cover;
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+.faq-btn-wrap {
+  grid-column: 1;
+}
+
+.faq-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+.faq-title {
+  color: var(--white);
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.faq-subtitle {
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  line-height: 1.45;
+  max-width: 480px;
+}
+
+.faq-box {
+  border: 1.5px solid var(--white);
+  border-radius: 12px;
+  padding: 24px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.faq-question-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.faq-neon-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-neon);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.faq-question {
+  color: var(--white);
+  font-size: 14.8px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.faq-answer {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  padding-left: 16px;
+  opacity: 0.95;
+}
+
+.faq-cta-btn {
+  margin-left: 110px;
+}
+
+/* ==========================================================================
+   DOBRA 5: APRESENTAÇÃO DO MEU TRABALHO (SLIDER)
+   ========================================================================== */
+.section-apresentacao {
+  position: relative;
+  background-color: var(--white);
+  padding: 80px 0 75px;
+}
+
+/* Depth Carousel */
+.depth-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.depth-carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 520px;
+  perspective: 1300px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.depth-carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.depth-card {
+  position: absolute;
+  left: 50%;
+  width: 540px;
+  margin-left: -270px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.depth-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.depth-carousel-counter {
+  text-align: center;
+  margin-top: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  opacity: 0.6;
+}
+
+.depth-carousel-hint {
+  text-align: center;
+  margin-top: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  opacity: 0.35;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
+
+.slider-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--secondary-green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.slider-arrow:hover {
+  background: #8aad8a;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+}
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(111, 141, 111, 0.3);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+  border: none;
+}
+
+.dot.active {
+  background-color: var(--secondary-green);
+  transform: scale(1.2);
+}
+
+.apresentacao-cta-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.apresentacao-cta-wrapper .btn-primary {
+  width: 350px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .depth-carousel-viewport {
+    min-height: 340px;
+  }
+  .depth-card {
+    width: 300px;
+    margin-left: -150px;
+  }
+}
+
+/* ==========================================================================
+   DOBRA 6: PRIMEIRO PASSO / CTA FINAL
+   ========================================================================== */
+.section-primeiro-passo {
+  position: relative;
+  background-color: var(--white);
+  padding: 60px 0 80px;
+  text-align: center;
+}
+
+.section-primeiro-passo .section-title {
+  font-size: 27px;
+  max-width: 760px;
+  margin: 0 auto 12px;
+}
+
+.section-primeiro-passo .section-subtitle {
+  font-size: 18px;
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+
+.primeiro-passo-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.primeiro-passo-cta-wrapper .btn-primary {
+  width: 350px;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   RODAPÉ / FOOTER
+   ========================================================================== */
+.footer-wrapper {
+  width: 100%;
+}
+
+.footer-top {
+  background-color: var(--secondary-green);
+  padding: 30px 0 25px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.footer-col-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.footer-logo img {
+  width: 150px;
+  height: auto;
+}
+
+.footer-crp-text {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.footer-title {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-nav-list a {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav-list a:hover {
+  opacity: 0.8;
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.4px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  filter: blur(4px);
+  transition: top 0.8s cubic-bezier(0.44, 0, 0, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.social-btn:hover::before {
+  top: 100%;
+}
+
+.social-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.social-btn:hover {
+  background-color: var(--white);
+  color: var(--primary-green);
+  transform: translateY(-2px);
+}
+
+.social-btn:hover svg path {
+  fill: var(--primary-green);
+}
+
+.footer-bottom {
+  background-color: var(--white);
+  padding: 14px 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-green);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.footer-policy-link {
+  color: var(--primary-green);
+  cursor: pointer;
+}
+
+.footer-policy-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+    BOTÃO FLUTUANTE DE WHATSAPP
+    ========================================================================== */
+.whatsapp-floating {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform 0.25s ease;
+  overflow: hidden;
+}
+.whatsapp-floating::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  filter: blur(6px);
+  transition: top 0.8s cubic-bezier(0.44, 0, 0, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.whatsapp-floating:hover::before {
+  top: 100%;
+}
+.whatsapp-floating:hover {
+  transform: scale(1.08);
+}
+.whatsapp-floating svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--white);
+}
+
+/* ==========================================================================
+   MODAL DE POLÍTICA DE PRIVACIDADE
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--white);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  border-radius: 16px;
+  padding: 34px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  color: #333;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.modal-close-btn:hover {
+  background: #ddd;
+}
+
+.modal-content h2 {
+  color: var(--primary-green);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  color: #444;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablet landscape / Small desktop */
+@media (max-width: 992px) {
+  .hero-content {
+    max-width: 400px;
+    margin-top: -80px;
+  }
+  .hero-logo img {
+    width: 200px;
+  }
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-desc {
+    font-size: 16px;
+  }
+  .hero-cta-wrapper {
+    width: 300px;
+  }
+  .hero-section {
+    min-height: 600px;
+  }
+
+  .evidencias-layout {
+    grid-template-columns: 1fr;
+  }
+  .evidencias-left {
+    min-height: 300px;
+  }
+  .evidencias-header-title {
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
+
+  .passos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .passo-card {
+    padding: 36px 16px 24px;
+  }
+  .passo-numero-badge {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+    top: -28px;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .faq-image-spacer {
+    display: none;
+  }
+  .faq-box {
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .footer-col-logo {
+    grid-column: 1 / -1;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-social-icons {
+    justify-content: center;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Hero */
+  .hero-section {
+    height: auto;
+    max-height: none;
+    min-height: 800px;
+    background: url("Assets/HERO MOBILE.bmp") center top / 140% auto no-repeat;
+    padding-bottom: 200px;
+  }
+  .hero-content {
+    max-width: 100%;
+    margin-top: 400px;
+    padding: 0 10px;
+    align-items: center;
+  }
+  .hero-grid {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-logo img {
+    width: 210px;
+  }
+  .hero-tagline {
+    font-size: 14px;
+  }
+  .hero-title {
+    font-size: 23px;
+  }
+  .hero-desc {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .hero-cta-wrapper {
+    width: 100%;
+    max-width: 320px;
+  }
+  .hero-note {
+    font-size: 13px;
+  }
+
+  /* Evidências */
+  .section-evidencias {
+    padding-top: 10px;
+    min-height: clamp(600px, 100vw, 850px);
+    background: url("Assets/DOBRA 2 MOBILE.png") center top / cover no-repeat !important;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .section-evidencias > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .section-evidencias-wrapper {
+    padding-bottom: 0;
+    background-color: transparent !important;
+  }
+  .section-evidencias-wrapper::before {
+    z-index: 0;
+    background: url("Assets/SHAPE DO FUNDO PARA MOBILE.svg") center top / cover
+      no-repeat;
+    min-height: 100%;
+  }
+  .evidencias-layout {
+    justify-items: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .evidencias-header-title {
+    font-size: clamp(18px, 4vw, 20px);
+    margin-bottom: clamp(30px, 8vw, 50px);
+    margin-top: 17px;
+  }
+  .evidencias-right {
+    background: rgba(95, 95, 95, 0.55);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 16px 14px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto 200px auto;
+    flex-shrink: 0;
+  }
+  .evidencias-bio {
+    font-size: 12px;
+    text-align: center;
+  }
+  .evidencia-card {
+    padding: 10px 14px;
+    width: 100%;
+  }
+  .card-title {
+    font-size: 11px;
+  }
+  .card-title-row {
+    justify-content: flex-start;
+  }
+  .card-desc {
+    font-size: 11px;
+  }
+
+  /* Marquee */
+  .marquee-ribbon {
+    margin-top: 0;
+  }
+  .marquee-content {
+    font-size: 13px;
+    padding-right: 20px;
+  }
+
+  /* Como funciona */
+  .section-como-funciona {
+    padding: 60px 0 70px;
+  }
+  .section-title {
+    font-size: 20px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+  .passos-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .passo-card {
+    padding: 42px 24px 28px;
+  }
+  .passo-title {
+    font-size: 15px;
+  }
+  .passo-desc {
+    font-size: 13px;
+  }
+
+  /* FAQ */
+  .section-faq {
+    padding: 300px 0 70px;
+    background: var(--secondary-green) url("Assets/IMAGEM DOBRA 4 MOBILE.bmp")
+      center top / cover no-repeat !important;
+  }
+  .faq-content {
+    background: rgba(95, 95, 95, 0.55);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 24px 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+    margin: 15px;
+    align-items: center;
+  }
+  .faq-btn-wrap {
+    margin-left: 0;
+  }
+  .faq-title {
+    font-size: 21px;
+  }
+  .faq-subtitle {
+    font-size: 14px;
+  }
+  .faq-box {
+    max-width: 100%;
+  }
+  .faq-question {
+    font-size: 14px;
+  }
+  .faq-question-row {
+    justify-content: center;
+  }
+  .faq-answer {
+    font-size: 13px;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  /* Apresentação */
+  .section-apresentacao {
+    padding: 60px 0 50px;
+  }
+
+  /* Depth Carousel */
+  .depth-carousel-viewport {
+    min-height: 320px;
+  }
+  .depth-card {
+    width: 300px;
+    margin-left: -150px;
+  }
+
+  /* Primeiro Passo */
+  .section-primeiro-passo {
+    padding: 40px 0 60px;
+  }
+  .section-primeiro-passo .section-title {
+    font-size: 20px;
+  }
+  .section-primeiro-passo .section-subtitle {
+    font-size: 14px;
+  }
+  .primeiro-passo-cta-wrapper {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Botões */
+  .btn-primary {
+    font-size: 15px;
+    height: 50px;
+    padding: 0 24px;
+  }
+  .btn-white {
+    font-size: 15px;
+    height: 48px;
+    padding: 0 28px;
+  }
+
+  /* Footer */
+  .footer-top {
+    padding: 16px 0 14px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+    justify-items: center;
+  }
+  .footer-col-logo {
+    align-items: center;
+  }
+  .footer-col-nav {
+    text-align: center;
+  }
+  .footer-nav-list {
+    align-items: center;
+  }
+  .footer-logo img {
+    width: 110px;
+  }
+  .footer-crp-text {
+    font-size: 12px;
+  }
+  .footer-social-icons {
+    justify-content: center;
+  }
+  .footer-bottom-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Intermediate mobile */
+@media (max-width: 600px) {
+  /* Evidências */
+  .section-evidencias {
+    min-height: clamp(550px, 110vw, 750px);
+  }
+  .evidencias-header-title {
+    font-size: 18px;
+    margin-bottom: clamp(25px, 8vw, 45px);
+  }
+  .evidencias-right {
+    width: 88%;
+    padding: 14px 12px;
+  }
+  .evidencias-bio {
+    font-size: 11px;
+  }
+  .evidencia-card {
+    padding: 8px 12px;
+  }
+  .card-title {
+    font-size: 10px;
+  }
+  .card-desc {
+    font-size: 10px;
+  }
+  .marquee-ribbon {
+    margin-top: 0;
+  }
+  .section-evidencias-wrapper::before {
+    top: -80px;
+    height: clamp(450px, 85vw, 650px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Hero */
+  .hero-section {
+    height: auto;
+    max-height: none;
+    min-height: 750px;
+    background: url("Assets/HERO MOBILE.bmp") center top / 140% auto no-repeat;
+    padding-bottom: 180px;
+  }
+  .hero-content {
+    margin-top: 380px;
+  }
+  .hero-logo img {
+    width: 180px;
+  }
+  .hero-tagline {
+    font-size: 13px;
+  }
+  .hero-title {
+    font-size: 20px;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 22px;
+  }
+  .hero-cta-wrapper {
+    max-width: 280px;
+  }
+  .hero-note {
+    font-size: 12px;
+  }
+
+  /* Evidências */
+  .evidencias-header-title {
+    font-size: 18px;
+    margin-bottom: 250px;
+  }
+  .evidencias-bio {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .evidencia-card {
+    padding: 12px 16px;
+  }
+  .card-title {
+    font-size: 12px;
+  }
+  .card-desc {
+    font-size: 12px;
+  }
+
+  /* Marquee */
+  .marquee-ribbon {
+    height: 44px;
+    margin-top: 0;
+  }
+  .marquee-content {
+    font-size: 11px;
+    padding-right: 16px;
+  }
+
+  /* Evidências wrapper */
+  .section-evidencias {
+    min-height: clamp(500px, 130vw, 800px);
+    background: url("Assets/DOBRA 2 MOBILE.png") center top / cover no-repeat !important;
+  }
+  .section-evidencias-wrapper {
+    margin-top: 0;
+    padding-bottom: 0;
+    background-color: transparent !important;
+  }
+  .section-evidencias-wrapper::before {
+    top: -60px;
+    height: clamp(400px, 90vw, 700px);
+    background: url("Assets/SHAPE DO FUNDO PARA MOBILE.svg") center top / cover
+      no-repeat;
+  }
+
+  /* Como funciona */
+  .section-como-funciona {
+    padding: 50px 0 60px;
+  }
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .section-subtitle {
+    font-size: 14px;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .passo-card {
+    padding: 38px 20px 24px;
+  }
+  .passo-numero-badge {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    top: -24px;
+  }
+  .passo-title {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .passo-desc {
+    font-size: 12px;
+  }
+
+  /* FAQ */
+  .section-faq {
+    padding: 280px 0 60px;
+  }
+  .faq-title {
+    font-size: 18px;
+  }
+  .faq-subtitle {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .faq-box {
+    padding: 18px;
+  }
+  .faq-btn-wrap {
+    margin-left: 0;
+  }
+  .faq-question {
+    font-size: 13px;
+  }
+  .faq-answer {
+    font-size: 12px;
+    padding-left: 12px;
+  }
+
+  /* Apresentação */
+  .section-apresentacao {
+    padding: 50px 0 40px;
+  }
+
+  /* Depth Carousel */
+  .depth-carousel-viewport {
+    min-height: 260px;
+  }
+  .depth-card {
+    width: 240px;
+    margin-left: -120px;
+  }
+  .depth-carousel-hint {
+    display: none;
+  }
+
+  /* Primeiro Passo */
+  .section-primeiro-passo {
+    padding: 35px 0 50px;
+  }
+  .section-primeiro-passo .section-title {
+    font-size: 17px;
+  }
+  .section-primeiro-passo .section-subtitle {
+    font-size: 13px;
+  }
+
+  /* Botões */
+  .btn-primary {
+    font-size: 14px;
+    height: 46px;
+    padding: 0 20px;
+  }
+  .btn-white {
+    font-size: 14px;
+    height: 44px;
+    padding: 0 22px;
+  }
+  .btn-text {
+    font-size: inherit;
+  }
+
+  /* Footer */
+  .footer-top {
+    padding: 12px 0 10px;
+  }
+  .footer-grid {
+    justify-items: center;
+  }
+  .footer-logo img {
+    width: 100px;
+  }
+  .footer-crp-text {
+    font-size: 11px;
+  }
+  .footer-title {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .footer-nav-list {
+    gap: 2px;
+    align-items: center;
+  }
+  .footer-nav-list a {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .footer-bottom {
+    padding: 10px 0;
+  }
+  .footer-bottom-inner {
+    font-size: 10px;
+  }
+
+  /* WhatsApp */
+  .whatsapp-floating {
+    width: 48px;
+    height: 48px;
+    bottom: 16px;
+    right: 16px;
+  }
+  .whatsapp-floating svg {
+    width: 24px;
+    height: 24px;
+  }
+}
