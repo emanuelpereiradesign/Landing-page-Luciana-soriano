@@ -222,9 +222,12 @@ if (carousel && viewport && cards.length > 0) {
     });
   });
 
-  createDots();
-  animate();
-  startAutoPlay();
+  // Inicialização adiada para após o primeiro paint (evita reflow forçado)
+  requestAnimationFrame(() => {
+    createDots();
+    animate();
+    startAutoPlay();
+  });
 }
 
 // ==========================================================================

@@ -1,7 +1,4 @@
-/* ==========================================================================
-   ESTILOS REFINADOS E PROPORCIONAIS - PÁGINA LUCIANA SORIANO
-   Ajuste Fino de Escala: Fontes, Botões, Cards e Shapes Elegantes
-   ========================================================================== */
+
 
 :root {
   --primary-green: #3d6b3d;
@@ -16,8 +13,6 @@
   --btn-shadow: 0px 8px 16px rgba(69, 255, 75, 0.22);
   --btn-shadow-hover: 0px 12px 20px rgba(69, 255, 75, 0.32);
 }
-
-/* Reset e Base */
 *,
 *::before,
 *::after {
@@ -60,7 +55,6 @@ button {
   font-family: inherit;
 }
 
-/* Container de Conteúdo (Proporção Exata Figma) */
 .container {
   width: 100%;
   max-width: 1140px;
@@ -69,8 +63,6 @@ button {
   padding-left: 24px;
   padding-right: 24px;
 }
-
-/* Botões Padronizados e Proporcionais */
 .btn-primary {
   display: inline-flex;
   justify-content: center;
@@ -168,7 +160,6 @@ button {
   box-shadow: 0px 12px 22px rgba(0, 0, 0, 0.18);
 }
 
-/* Text slide animation (Light Bulb Button) */
 .btn-text-wrap {
   display: block;
   position: relative;
@@ -205,9 +196,6 @@ button {
   transition-delay: 0.15s;
 }
 
-/* ==========================================================================
-   DOBRA 1: HERO SECTION
-   ========================================================================== */
 .hero-section {
   position: relative;
   background: url("compressed/hero_section.webp") 60px center / cover no-repeat;
@@ -302,9 +290,6 @@ button {
   object-position: top center;
 }
 
-/* ==========================================================================
-   DOBRA 2: TERAPIA BASEADA EM EVIDÊNCIAS
-   ========================================================================== */
 .section-evidencias-wrapper {
   position: relative;
   margin-top: 0;
@@ -325,7 +310,6 @@ button {
   pointer-events: none;
   z-index: -1;
 }
-/* SVG Curva superior */
 .evidencias-arch {
   display: none;
   position: relative;
@@ -341,8 +325,6 @@ button {
   height: 100%;
   display: block;
 }
-
-/* Medalhão Central com Monograma LS */
 .crest-badge-container {
   position: absolute;
   top: -34px;
@@ -368,7 +350,6 @@ button {
   height: 38px;
 }
 
-/* Conteúdo Dobra 2 */
 .section-evidencias {
   position: relative;
   background: url("compressed/foto_do_background_da_dobra_2\ \(2\).webp")
@@ -417,8 +398,6 @@ button {
 .evidencias-bio strong {
   font-weight: 700;
 }
-
-/* Cards Brancos Proporcionais */
 .evidencia-card {
   background: var(--white);
   border-radius: 11px;
@@ -467,9 +446,6 @@ button {
   color: var(--secondary-green);
 }
 
-/* ==========================================================================
-   FAIXA DE DESTAQUE / MARQUEE RIBBON
-   ========================================================================== */
 .marquee-ribbon {
   background: var(--gradient-ribbon);
   height: 56px;
@@ -507,9 +483,6 @@ button {
   }
 }
 
-/* ==========================================================================
-   DOBRA 3: COMO FUNCIONA A TERAPIA
-   ========================================================================== */
 .section-como-funciona {
   position: relative;
   background-color: var(--white);
@@ -621,9 +594,6 @@ button {
   line-height: 1.48;
 }
 
-/* ==========================================================================
-   DOBRA 4: DÚVIDAS SOBRE A PSICOTERAPIA (FAQ)
-   ========================================================================== */
 .section-faq {
   position: relative;
   background: var(--secondary-green)
@@ -723,16 +693,11 @@ button {
   margin-left: 110px;
 }
 
-/* ==========================================================================
-   DOBRA 5: APRESENTAÇÃO DO MEU TRABALHO (SLIDER)
-   ========================================================================== */
 .section-apresentacao {
   position: relative;
   background-color: var(--white);
   padding: 80px 0 75px;
 }
-
-/* Depth Carousel */
 .depth-carousel {
   position: relative;
   width: 100%;
@@ -877,9 +842,6 @@ button {
   }
 }
 
-/* ==========================================================================
-   DOBRA 6: PRIMEIRO PASSO / CTA FINAL
-   ========================================================================== */
 .section-primeiro-passo {
   position: relative;
   background-color: var(--white);
@@ -911,9 +873,6 @@ button {
   max-width: 100%;
 }
 
-/* ==========================================================================
-   RODAPÉ / FOOTER
-   ========================================================================== */
 .footer-wrapper {
   width: 100%;
 }
@@ -1056,9 +1015,6 @@ button {
   text-decoration: underline;
 }
 
-/* ==========================================================================
-    BOTÃO FLUTUANTE DE WHATSAPP
-    ========================================================================== */
 .whatsapp-floating {
   position: fixed;
   bottom: 25px;
@@ -1105,9 +1061,6 @@ button {
   fill: var(--white);
 }
 
-/* ==========================================================================
-   MODAL DE POLÍTICA DE PRIVACIDADE
-   ========================================================================== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1175,11 +1128,6 @@ button {
   color: #444;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
-
-/* Tablet landscape / Small desktop */
 @media (max-width: 992px) {
   .hero-content {
     max-width: 400px;
@@ -1254,14 +1202,10 @@ button {
     justify-content: center;
   }
 }
-
-/* Tablet portrait */
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
   }
-
-  /* Hero */
   .hero-section {
     height: auto;
     max-height: none;
@@ -1301,8 +1245,6 @@ button {
   .hero-note {
     font-size: 13px;
   }
-
-  /* Evidências */
   .section-evidencias {
     padding-top: 10px;
     min-height: clamp(600px, 100vw, 850px);
@@ -1371,8 +1313,6 @@ button {
   .card-desc {
     font-size: 11px;
   }
-
-  /* Marquee */
   .marquee-ribbon {
     margin-top: 0;
   }
@@ -1380,8 +1320,6 @@ button {
     font-size: 13px;
     padding-right: 20px;
   }
-
-  /* Como funciona */
   .section-como-funciona {
     padding: 60px 0 70px;
   }
@@ -1406,8 +1344,6 @@ button {
   .passo-desc {
     font-size: 13px;
   }
-
-  /* FAQ */
   .section-faq {
     padding: 300px 0 70px;
     background: var(--secondary-green)
@@ -1452,13 +1388,9 @@ button {
     padding-left: 0;
     text-align: center;
   }
-
-  /* Apresentação */
   .section-apresentacao {
     padding: 60px 0 50px;
   }
-
-  /* Depth Carousel */
   .depth-carousel-viewport {
     min-height: 320px;
   }
@@ -1466,8 +1398,6 @@ button {
     width: 300px;
     margin-left: -150px;
   }
-
-  /* Primeiro Passo */
   .section-primeiro-passo {
     padding: 40px 0 60px;
   }
@@ -1482,8 +1412,6 @@ button {
     max-width: 320px;
     margin: 0 auto;
   }
-
-  /* Botões */
   .btn-primary {
     font-size: 15px;
     height: 50px;
@@ -1495,8 +1423,6 @@ button {
     padding: 0 28px;
     margin: auto;
   }
-
-  /* Footer */
   .footer-top {
     padding: 16px 0 14px;
   }
@@ -1529,10 +1455,7 @@ button {
     gap: 8px;
   }
 }
-
-/* Intermediate mobile */
 @media (max-width: 600px) {
-  /* Evidências */
   .section-evidencias {
     min-height: clamp(550px, 110vw, 750px);
   }
@@ -1564,14 +1487,10 @@ button {
     height: clamp(450px, 85vw, 650px);
   }
 }
-
-/* Mobile */
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;
   }
-
-  /* Hero */
   .hero-section {
     height: auto;
     max-height: none;
@@ -1603,8 +1522,6 @@ button {
   .hero-note {
     font-size: 12px;
   }
-
-  /* Evidências */
   .evidencias-header-title {
     font-size: 18px;
     margin-bottom: 250px;
@@ -1622,8 +1539,6 @@ button {
   .card-desc {
     font-size: 12px;
   }
-
-  /* Marquee */
   .marquee-ribbon {
     height: 44px;
     margin-top: 0;
@@ -1632,8 +1547,6 @@ button {
     font-size: 11px;
     padding-right: 16px;
   }
-
-  /* Evidências wrapper */
   .section-evidencias {
     min-height: clamp(500px, 130vw, 800px);
     background: url("compressed/DOBRA 2 MOBILE.webp") center top / cover
@@ -1650,8 +1563,6 @@ button {
     background: url("Assets/SHAPE DO FUNDO PARA MOBILE.svg") center top / cover
       no-repeat;
   }
-
-  /* Como funciona */
   .section-como-funciona {
     padding: 50px 0 60px;
   }
@@ -1681,8 +1592,6 @@ button {
   .passo-desc {
     font-size: 12px;
   }
-
-  /* FAQ */
   .section-faq {
     padding: 280px 0 60px;
   }
@@ -1710,13 +1619,9 @@ button {
     font-size: 12px;
     padding-left: 12px;
   }
-
-  /* Apresentação */
   .section-apresentacao {
     padding: 50px 0 40px;
   }
-
-  /* Depth Carousel */
   .depth-carousel-viewport {
     min-height: 260px;
   }
@@ -1727,8 +1632,6 @@ button {
   .depth-carousel-hint {
     display: none;
   }
-
-  /* Primeiro Passo */
   .section-primeiro-passo {
     padding: 35px 0 50px;
   }
@@ -1738,8 +1641,6 @@ button {
   .section-primeiro-passo .section-subtitle {
     font-size: 13px;
   }
-
-  /* Botões */
   .btn-primary {
     font-size: 14px;
     height: 46px;
@@ -1753,8 +1654,6 @@ button {
   .btn-text {
     font-size: inherit;
   }
-
-  /* Footer */
   .footer-top {
     padding: 12px 0 10px;
   }
@@ -1785,8 +1684,6 @@ button {
   .footer-bottom-inner {
     font-size: 10px;
   }
-
-  /* WhatsApp */
   .whatsapp-floating {
     width: 48px;
     height: 48px;
