@@ -44,7 +44,7 @@ if (carousel && viewport && cards.length > 0) {
     if (w <= 768) return 300;
     return 540;
   }
-  let CARD_WIDTH = getCardWidth();
+  let CARD_WIDTH = 540;
   const SIDE_SCALE = 0.65;
   const DEPTH = 140;
   const CURVE = 38;
@@ -224,6 +224,7 @@ if (carousel && viewport && cards.length > 0) {
 
   // Inicialização adiada para após o primeiro paint (evita reflow forçado)
   requestAnimationFrame(() => {
+    CARD_WIDTH = getCardWidth();
     createDots();
     animate();
     startAutoPlay();
