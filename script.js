@@ -3,26 +3,30 @@
    ========================================================================== */
 
 // CONFIGURAÇÃO DO WHATSAPP
-const WHATSAPP_NUMBER = '5582999999999';
-const WHATSAPP_MSG = encodeURIComponent('Olá, Luciana! Vim pelo seu site e gostaria de agendar uma consulta.');
+const WHATSAPP_NUMBER = "5582999999999";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Olá, Luciana! Vim pelo seu site e gostaria de agendar uma consulta.",
+);
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-document.querySelectorAll('.js-whatsapp-link').forEach(btn => {
-  btn.setAttribute('href', WHATSAPP_URL);
-  btn.setAttribute('target', '_blank');
-  btn.setAttribute('rel', 'noopener noreferrer');
+document.querySelectorAll(".js-whatsapp-link").forEach((btn) => {
+  btn.setAttribute("href", WHATSAPP_URL);
+  btn.setAttribute("target", "_blank");
+  btn.setAttribute("rel", "noopener noreferrer");
 });
 
 // ==========================================================================
 // CARROSSEL DE APRESENTAÇÃO (DEPTH CAROUSEL)
 // ==========================================================================
-const carousel = document.getElementById('depthCarousel');
-const viewport = carousel?.querySelector('.depth-carousel-viewport');
-const cards = carousel ? Array.from(carousel.querySelectorAll('.depth-card')) : [];
-const counterEl = document.getElementById('depthCounter');
-const prevBtn = document.getElementById('sliderPrev');
-const nextBtn = document.getElementById('sliderNext');
-const dotsContainer = document.getElementById('sliderDots');
+const carousel = document.getElementById("depthCarousel");
+const viewport = carousel?.querySelector(".depth-carousel-viewport");
+const cards = carousel
+  ? Array.from(carousel.querySelectorAll(".depth-card"))
+  : [];
+const counterEl = document.getElementById("depthCounter");
+const prevBtn = document.getElementById("sliderPrev");
+const nextBtn = document.getElementById("sliderNext");
+const dotsContainer = document.getElementById("sliderDots");
 
 if (carousel && viewport && cards.length > 0) {
   const n = cards.length;
@@ -90,12 +94,12 @@ if (carousel && viewport && cards.length > 0) {
     }
 
     if (counterEl) {
-      counterEl.textContent = `${String(active + 1).padStart(2, '0')} — ${String(n).padStart(2, '0')}`;
+      counterEl.textContent = `${String(active + 1).padStart(2, "0")} — ${String(n).padStart(2, "0")}`;
     }
 
-    const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+    const dots = dotsContainer ? dotsContainer.querySelectorAll(".dot") : [];
     for (let idx = 0; idx < dots.length; idx++) {
-      dots[idx].classList.toggle('active', idx === activeIdx);
+      dots[idx].classList.toggle("active", idx === activeIdx);
     }
   }
 
@@ -116,19 +120,12 @@ if (carousel && viewport && cards.length > 0) {
     resetAutoPlay();
   }
 
-  function nextSlide() { goTo(Math.round(target) + 1); }
-  function prevSlide() { goTo(Math.round(target) - 1); }
-
-  // Wheel
-  let wheelTimer;
-  viewport.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(d) < 0.5) return;
-    target = Math.max(0, Math.min(n - 1, target + d * 0.005));
-    clearTimeout(wheelTimer);
-    wheelTimer = setTimeout(() => snapTo(target), 160);
-  }, { passive: false });
+  function nextSlide() {
+    goTo(Math.round(target) + 1);
+  }
+  function prevSlide() {
+    goTo(Math.round(target) - 1);
+  }
 
   // Drag
   let snapTimer;
@@ -137,7 +134,7 @@ if (carousel && viewport && cards.length > 0) {
     snapTimer = setTimeout(() => snapTo(target), 160);
   }
 
-  viewport.addEventListener('pointerdown', (e) => {
+  viewport.addEventListener("pointerdown", (e) => {
     dragging = true;
     startX = lastX = e.clientX;
     startVal = target;
@@ -146,7 +143,7 @@ if (carousel && viewport && cards.length > 0) {
     viewport.setPointerCapture?.(e.pointerId);
   });
 
-  viewport.addEventListener('pointermove', (e) => {
+  viewport.addEventListener("pointermove", (e) => {
     if (!dragging) return;
     const now = performance.now();
     const dx = e.clientX - startX;
@@ -158,63 +155,86 @@ if (carousel && viewport && cards.length > 0) {
     lastTime = now;
   });
 
-  viewport.addEventListener('pointerup', () => {
+  viewport.addEventListener("pointerup", () => {
     if (!dragging) return;
     dragging = false;
     const perCard = Math.max(120, CARD_WIDTH * 0.5);
-    const projected = target - velocity * 150 / perCard;
+    const projected = target - (velocity * 150) / perCard;
     snapTo(projected);
     resetAutoPlay();
   });
 
   // Touch swipe
   let touchStartX = 0;
-  viewport.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    pauseAutoPlay();
-  }, { passive: true });
+  viewport.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      pauseAutoPlay();
+    },
+    { passive: true },
+  );
 
-  viewport.addEventListener('touchend', (e) => {
-    const dx = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(dx) > 40) {
-      dx > 0 ? nextSlide() : prevSlide();
-    }
-    resetAutoPlay();
-  }, { passive: true });
+  viewport.addEventListener(
+    "touchend",
+    (e) => {
+      const dx = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(dx) > 40) {
+        dx > 0 ? nextSlide() : prevSlide();
+      }
+      resetAutoPlay();
+    },
+    { passive: true },
+  );
 
   // Arrows
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
   // Dots
   function createDots() {
     if (!dotsContainer) return;
-    dotsContainer.innerHTML = '';
+    dotsContainer.innerHTML = "";
     for (let i = 0; i < n; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'dot';
-      dot.setAttribute('aria-label', `Slide ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
+      const dot = document.createElement("button");
+      dot.className = "dot";
+      dot.setAttribute("aria-label", `Slide ${i + 1}`);
+      dot.addEventListener("click", () => goTo(i));
       dotsContainer.appendChild(dot);
     }
   }
 
-  // Auto-play
-  function startAutoPlay() { autoPlayInterval = setInterval(nextSlide, 5000); }
-  function pauseAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); }
-  function resetAutoPlay() { pauseAutoPlay(); startAutoPlay(); }
+  // Auto-play (4s, loop from last to first)
+  function autoPlayNext() {
+    const next = Math.round(target) + 1;
+    if (next >= n) {
+      goTo(0);
+    } else {
+      goTo(next);
+    }
+  }
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(autoPlayNext, 3000);
+  }
+  function pauseAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+  }
+  function resetAutoPlay() {
+    pauseAutoPlay();
+    startAutoPlay();
+  }
 
-  carousel.addEventListener('mouseenter', pauseAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
+  carousel.addEventListener("mouseenter", pauseAutoPlay);
+  carousel.addEventListener("mouseleave", startAutoPlay);
 
   // Keyboard
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
   });
 
   // Resize (debounced to prevent forced reflow)
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     if (resizeTimeout) cancelAnimationFrame(resizeTimeout);
     resizeTimeout = requestAnimationFrame(() => {
       CARD_WIDTH = getCardWidth();
@@ -234,38 +254,38 @@ if (carousel && viewport && cards.length > 0) {
 // ==========================================================================
 // MODAL DE POLÍTICA DE PRIVACIDADE
 // ==========================================================================
-const modal = document.getElementById('privacyModal');
-const openModalLinks = document.querySelectorAll('.js-open-privacy');
-const closeModalBtn = document.getElementById('closePrivacyModal');
+const modal = document.getElementById("privacyModal");
+const openModalLinks = document.querySelectorAll(".js-open-privacy");
+const closeModalBtn = document.getElementById("closePrivacyModal");
 
 if (modal) {
   function openModal(e) {
     if (e) e.preventDefault();
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
   }
 
   function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
   }
 
-  openModalLinks.forEach(link => {
-    link.addEventListener('click', openModal);
+  openModalLinks.forEach((link) => {
+    link.addEventListener("click", openModal);
   });
 
   if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
+    closeModalBtn.addEventListener("click", closeModal);
   }
 
-  modal.addEventListener('click', (e) => {
+  modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       closeModal();
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
       closeModal();
     }
   });
@@ -274,17 +294,17 @@ if (modal) {
 // ==========================================================================
 // ROLAGEM SUAVE PARA LINKS INTERNOS
 // ==========================================================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    if (targetId === '#' || targetId === '') return;
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (targetId === "#" || targetId === "") return;
 
     const targetEl = document.querySelector(targetId);
     if (targetEl) {
       e.preventDefault();
       targetEl.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        behavior: "smooth",
+        block: "start",
       });
     }
   });
